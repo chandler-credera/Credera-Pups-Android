@@ -1,0 +1,25 @@
+<resources>
+    <string name="app_name">Credera Pups</string>
+    <string name="default_animal_name_text">No Name</string>
+    <string name="default_animal_image_text">No Image</string>
+    <string name="default_animal_age_text">No Age Given</string>
+    <string name="default_animal_gender_text">No Gender Given</string>
+    <string name="saveAnimalFavorite">Save Pupper As New Favorite</string>
+    <string name="search_button">Search For Puppers</string>
+    <string name="current_favorite_text">Current Favorite</string>
+    <string name="favorite_name_key">favoriteName</string>
+    <string name="favorite_name_default">No Favorite Chosen</string>
+    <string name="preferences_key">MyPreferences</string>
+    <string name="favorite_image_key">favoriteImage</string>
+    <string name="position_key">position</string>
+    <string name="grant_type_key">grant_type</string>
+    <string name="grant_type_value">client_credentials</string>
+    <string name="client_id_key">client_id</string>
+    <string name="client_id_value">ZUjWx2CMma5IPOABMvHQKIx8F4UuM8IUazhHAmNeTOSjoHh2CN</string>
+    <string name="client_secret_key">client_secret</string>
+    <string name="client_secret_value">QwHNH4EmT8nfcGyFAn6M40U45kMgWnQ4t2ut1pCx</string>
+    <string name="authorization">Authorization</string>
+    <string name="token_key">token</string>
+    <string name="token_expiration_key">tokenExpiration</string>
+    <string name="calendar_format">EE MMM dd hh:mm:ss z yyyy</string>
+</resources>
