@@ -36,8 +36,6 @@ public class AnimalActivity extends AppCompatActivity {
         animals = AnimalAdapter.animals;
         animal = animals[position];
 
-        System.out.println(animal.name);
-
         if(position != -1 && animal.photos.length > 0){
             mainPhoto = animal.photos[0].full;
             Picasso.get().load(mainPhoto).resize(200, 200).centerCrop().into(selectedAnimalImage);

@@ -45,44 +45,23 @@ public class AnimalsActivity extends AppCompatActivity {
         bearerToken = preferences.getString(getString(R.string.token_key), "");
         String tokenExpiration = preferences.getString(getString(R.string.token_expiration_key), "");
 
-        System.out.println("Token Expiration: " + tokenExpiration);
-
         try {
             SimpleDateFormat format = new SimpleDateFormat(getString(R.string.calendar_format));
             Calendar calendar = Calendar.getInstance();
             calendar.setTime(format.parse(tokenExpiration));
 
-            System.out.println("New Calendar Time: " + calendar.getTime());
-
-            System.out.println(Calendar.getInstance().getTime());
-
             if(Calendar.getInstance().after(calendar)){
-                System.out.println("Current Date is after expiration...");
-
                 // send the request to get a new token
                 JsonObjectRequest tokenRequest = getTokenRequest();
                 requestQueue.add(tokenRequest);
             }
-            else {
-                System.out.println("Current Date is before expiration!");
-            }
-
         }catch (Exception e){
-
+            System.out.println(e);
         }
 
         // send the request to get animals
-
         JsonObjectRequest animalsRequest = getAnimalRequest();
         requestQueue.add(animalsRequest);
-
-
-
-
-        // add the code here that will check to see if the bearer token is valid first
-        //getAnimalRequest();
-
-
 
     }
 
@@ -92,17 +71,9 @@ public class AnimalsActivity extends AppCompatActivity {
 
                     @Override
                     public void onResponse(JSONObject response) {
-                        System.out.println(response);
 
                         Gson gson = new Gson();
                         Animals tempAnimals = gson.fromJson(response.toString(), Animals.class);
-
-                        System.out.println("Animals!!! " + tempAnimals);
-
-                        for(Animal animal : tempAnimals.animals){
-                            System.out.println(animal.name);
-                            System.out.println(animal.url);
-                        }
 
                         animals = tempAnimals.animals;
 
@@ -153,17 +124,12 @@ public class AnimalsActivity extends AppCompatActivity {
 
                     @Override
                     public void onResponse(JSONObject response) {
-                        System.out.println(response);
 
                         Gson gson = new Gson();
                         Token token = gson.fromJson(response.toString(), Token.class);
 
-                        System.out.println(token.access_token);
-
                         Calendar calendar = Calendar.getInstance();
                         calendar.add(Calendar.SECOND, token.expires_in);
-
-                        System.out.println(calendar.getTime());
 
                         SharedPreferences preferences = getApplicationContext().getSharedPreferences(getString(R.string.preferences_key), Context.MODE_PRIVATE);
                         SharedPreferences.Editor editor = preferences.edit();

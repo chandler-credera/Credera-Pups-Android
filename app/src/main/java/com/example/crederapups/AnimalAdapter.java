@@ -43,8 +43,6 @@ public class AnimalAdapter extends BaseAdapter {
         }
 
         if(animals[position].photos.length > 0){
-            System.out.println(animals[position].name + " : " + animals[position].photos[0].full);
-
             Picasso.get().load(animals[position].photos[0].full).placeholder(R.drawable.no_image).resize(300, 300).centerCrop().error(R.drawable.no_image).into(imageView);
         }
         else {

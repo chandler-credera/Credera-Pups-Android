@@ -25,8 +25,6 @@ public class MainActivity extends AppCompatActivity {
         String favoriteName = preferences.getString(getString(R.string.favorite_name_key), getString(R.string.favorite_name_default));
         String favoritePhotoUrl = preferences.getString(getString(R.string.favorite_image_key), "");
 
-        System.out.println("Favorite Animal !!!!!!!!!!    " + preferences.getString("favoriteName", "No preference Found."));
-
         favoriteNameTxt.setText(favoriteName);
 
         if(favoritePhotoUrl != null && !favoritePhotoUrl.isEmpty()){
@@ -36,7 +34,6 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void sendMessage(View view) {
-        System.out.print("\n Sending Message!");
         Intent intent = new Intent(this, AnimalsActivity.class);
         startActivity(intent);
     }
