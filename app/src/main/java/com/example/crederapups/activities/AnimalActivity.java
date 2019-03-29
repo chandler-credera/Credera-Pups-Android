@@ -1,4 +1,4 @@
-package com.example.crederapups;
+package com.example.crederapups.activities;
 
 import android.content.Context;
 import android.content.Intent;
@@ -6,15 +6,17 @@ import android.content.SharedPreferences;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
-import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.example.crederapups.models.Animal;
+import com.example.crederapups.adapters.AnimalAdapter;
+import com.example.crederapups.R;
 import com.squareup.picasso.Picasso;
 
 public class AnimalActivity extends AppCompatActivity {
 
-    Animal [] animals;
+    Animal[] animals;
     Animal animal;
 
     String mainPhoto = "";

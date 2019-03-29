@@ -1,15 +1,18 @@
-package com.example.crederapups;
+package com.example.crederapups.adapters;
 
 import android.content.Context;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.ImageView;
+
+import com.example.crederapups.R;
+import com.example.crederapups.models.Animal;
 import com.squareup.picasso.Picasso;
 
 public class AnimalAdapter extends BaseAdapter {
     Context mContext;
-    public static Animal [] animals;
+    public static Animal[] animals;
 
     public AnimalAdapter(Context c, Animal [] a){
         mContext = c;

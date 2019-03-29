@@ -1,4 +1,4 @@
-package com.example.crederapups;
+package com.example.crederapups.activities;
 
 import android.content.Context;
 import android.content.Intent;
@@ -8,7 +8,6 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.GridView;
-import android.widget.TextView;
 
 import com.android.volley.AuthFailureError;
 import com.android.volley.Request;
@@ -17,19 +16,23 @@ import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.JsonObjectRequest;
 import com.android.volley.toolbox.Volley;
+import com.example.crederapups.models.Animal;
+import com.example.crederapups.adapters.AnimalAdapter;
+import com.example.crederapups.models.Animals;
+import com.example.crederapups.R;
+import com.example.crederapups.models.Token;
 import com.google.gson.Gson;
 
 import org.json.JSONObject;
 
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
-import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
 
 public class AnimalsActivity extends AppCompatActivity {
 
-    private Animal [] animals;
+    private Animal[] animals;
     private String bearerToken = "";
 
     @Override
@@ -67,7 +70,7 @@ public class AnimalsActivity extends AppCompatActivity {
 
     public JsonObjectRequest getAnimalRequest(){
         JsonObjectRequest jsonObjectRequest = new JsonObjectRequest
-                (Request.Method.GET, "https://api.petfinder.com/v2/animals?type=dog&limit=50&location=75001", null, new Response.Listener<JSONObject>() {
+                (Request.Method.GET, "https://api.petfinder.com/v2/animals?type=dog&limit=100&location=75001", null, new Response.Listener<JSONObject>() {
 
                     @Override
                     public void onResponse(JSONObject response) {
